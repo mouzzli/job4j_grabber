@@ -1,4 +1,5 @@
 # job4j_grabber
+[![Build](https://github.com/mouzzli/job4j_grabber/actions/workflows/build.yml/badge.svg)](https://github.com/mouzzli/job4j_grabber/actions/workflows/build.yml)
 
 Агрегатор вакансий.
 
