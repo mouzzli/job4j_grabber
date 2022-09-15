@@ -6,7 +6,7 @@ sudo: false
 services:
   - postgresql
 before_script:
-  - psql -c 'create database job4j' -U postgres
+  - psql -c 'create database job4j' -U user
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
