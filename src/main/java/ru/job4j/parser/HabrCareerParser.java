@@ -18,7 +18,7 @@ public class HabrCareerParser implements Parser {
     public List<Vacancy> getData() {
         List<Vacancy> vacancyList = new ArrayList<>();
         try {
-            for (int i = 1; i <= 1; i++) {
+            for (int i = 1; i <= 5; i++) {
                 Document document = Jsoup.connect(fullLink + "?page=" + i).get();
                 Elements elements = document.getElementsByClass("vacancy-card__inner");
                 elements.forEach(element -> {
