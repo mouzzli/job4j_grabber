@@ -4,7 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import ru.job4j.model.Vacancy;
-import ru.job4j.util.TimeUtil;
+import ru.job4j.util.Util;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -18,12 +18,12 @@ public class HabrCareerParser implements Parser {
     public List<Vacancy> getData() {
         List<Vacancy> vacancyList = new ArrayList<>();
         try {
-            for (int i = 1; i <= 5; i++) {
+            for (int i = 1; i <= 1; i++) {
                 Document document = Jsoup.connect(fullLink + "?page=" + i).get();
                 Elements elements = document.getElementsByClass("vacancy-card__inner");
                 elements.forEach(element -> {
                     String company = element.getElementsByClass("vacancy-card__company-title").first().child(0).text();
-                    LocalDateTime dateTime = TimeUtil.parse(element.getElementsByClass("vacancy-card__date").first().child(0).attr("datetime"));
+                    LocalDateTime dateTime = Util.parse(element.getElementsByClass("vacancy-card__date").first().child(0).attr("datetime"));
                     String title = element.getElementsByClass("vacancy-card__title").first().text();
                     String link = baseLink + element.getElementsByClass("vacancy-card__title").first().child(0).attr("href");
                     String description = getDescription(link);

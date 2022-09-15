@@ -17,6 +17,27 @@ public class Vacancy {
     private String title;
     private String link;
     private String description;
+
+    public String getCompany() {
+        return company;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
     private LocalDateTime dateTime;
 
     @Override
