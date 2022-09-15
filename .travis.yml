@@ -1,5 +1,6 @@
 language: java
 
+jdk: openjdk10
 sudo: false
 
 after_success:
