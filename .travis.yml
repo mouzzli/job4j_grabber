@@ -1,7 +1,12 @@
 language: java
 
-jdk: openjdk10
+jdk: openjdk18
 sudo: false
+
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database job4j' -U postgres
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
