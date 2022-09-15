@@ -22,6 +22,14 @@ public class Vacancy {
         return company;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -49,11 +57,11 @@ public class Vacancy {
             return false;
         }
         Vacancy vacancy = (Vacancy) o;
-        return id == vacancy.id && company.equals(vacancy.company) && title.equals(vacancy.title) && link.equals(vacancy.link) && description.equals(vacancy.description) && dateTime.equals(vacancy.dateTime);
+        return getId() == vacancy.getId() && getCompany().equals(vacancy.getCompany()) && getTitle().equals(vacancy.getTitle()) && getLink().equals(vacancy.getLink()) && getDescription().equals(vacancy.getDescription()) && getDateTime().equals(vacancy.getDateTime());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, company, title, link, description, dateTime);
+        return Objects.hash(getId(), getCompany(), getTitle(), getLink(), getDescription(), getDateTime());
     }
 }

@@ -24,8 +24,17 @@ public class PostgresJDBCRepo implements VacancyRepo {
 
     @Override
     public void save(Vacancy vacancy) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM vacancies WHERE link = ?")) {
+            preparedStatement.setString(1, vacancy.getLink());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         try (PreparedStatement preparedStatement = connection.prepareStatement(
-                "INSERT INTO vacancies(company, title, link, description, datetime) values(?, ?, ?, ?, ?)")) {
+                "INSERT INTO vacancies(company, title, link, description, datetime) values (?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, vacancy.getCompany());
             preparedStatement.setString(2, vacancy.getTitle());
             preparedStatement.setString(3, vacancy.getLink());
@@ -37,3 +46,4 @@ public class PostgresJDBCRepo implements VacancyRepo {
         }
     }
 }
+

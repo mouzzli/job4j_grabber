@@ -15,6 +15,7 @@ public class HabrCareerParser implements Parser {
     private final String baseLink = "https://career.habr.com/";
     private final String fullLink = String.format("%svacancies/java_developer", baseLink);
 
+    @Override
     public List<Vacancy> getData() {
         List<Vacancy> vacancyList = new ArrayList<>();
         try {
